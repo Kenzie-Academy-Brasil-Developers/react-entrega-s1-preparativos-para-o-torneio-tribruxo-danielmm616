@@ -1,0 +1,67 @@
+.Ravenclaw {
+  border: rgb(40, 40, 99) ridge 5px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(34, 31, 71),
+    rgb(46, 61, 199)
+  );
+}
+
+.Gryffindor {
+  border: rgb(119, 28, 28) ridge 5px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(109, 27, 27),
+    rgb(150, 53, 15)
+  );
+}
+
+.Slytherin {
+  border: rgb(21, 78, 21) ridge 5px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(29, 48, 24),
+    rgb(57, 141, 23)
+  );
+}
+
+.Hufflepuff {
+  border: rgb(185, 185, 36) ridge 5px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(172, 130, 17),
+    rgb(202, 199, 29)
+  );
+}
+
+.White {
+  border: rgb(167, 167, 167) ridge 5px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(68, 68, 68),
+    rgb(216, 216, 213)
+  );
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.card img {
+  width: 50%;
+}
+
+h2,
+p {
+  margin: 0;
+}
