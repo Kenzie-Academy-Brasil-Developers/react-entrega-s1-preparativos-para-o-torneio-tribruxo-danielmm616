@@ -12,7 +12,9 @@ function App() {
   useEffect(() => {
     fetch("https://hp-api.herokuapp.com/api/characters/students")
       .then((response) => response.json())
-      .then((response) => setWizards(response))
+      .then((response) =>
+        setWizards(response.filter((item) => item.image !== ""))
+      )
       .catch((err) => console.log(err));
   }, []);
 
@@ -20,20 +22,20 @@ function App() {
     setScreenStart(true);
   }
 
-  let tri = [wizards[Math.floor(Math.random() * wizards.length - 1)]];
-
   function chooseWizards() {
-    tri.push(wizards[Math.floor(Math.random() * wizards.length - 2)]);
+    let tri = [wizards[Math.floor(Math.random() * wizards.length)]];
+    let two = wizards.filter((item) => item.house !== tri[0].house);
+    tri.push(two[Math.floor(Math.random() * two.length)]);
+    let one = wizards.filter(
+      (item) => item.house !== tri[0].house && item.house !== tri[1].house
+    );
+    tri.push(one[Math.floor(Math.random() * one.length)]);
 
-    tri.push(wizards[Math.floor(Math.random() * wizards.length - 1)]);
-
-    console.log(tri);
     setScreenWizards(true);
     setTribruxo([...tri]);
   }
 
   function reset() {
-    tri = [wizards[Math.floor(Math.random() * wizards.length - 1)]];
     setTribruxo([]);
     setScreenStart(false);
     setScreenWizards(false);
@@ -42,6 +44,10 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
+        <audio
+          src="https://www.youtube.com/watch?v=Htaj3o3JD8I&ab_channel=Yume"
+          autoPlay="autoplay"
+        />
         {screenStart === false ? (
           <div className="Menu">
             <h1>Torneio Tribruxo</h1>
